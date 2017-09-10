@@ -17,7 +17,7 @@ namespace DAL
         public System.Guid RatingId { get; set; }
         public Nullable<System.Guid> PostId { get; set; }
         public Nullable<System.Guid> UserId { get; set; }
-        public Nullable<byte> Rating1 { get; set; }
+        public Nullable<byte> RatingValue { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual User User { get; set; }

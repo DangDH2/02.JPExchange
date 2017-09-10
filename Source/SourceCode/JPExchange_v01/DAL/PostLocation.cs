@@ -18,7 +18,7 @@ namespace DAL
         public System.Guid LocationId { get; set; }
         public System.Guid PostLocationId { get; set; }
     
-        public virtual LOCATION LOCATION { get; set; }
+        public virtual LOCATION Location { get; set; }
         public virtual Post Post { get; set; }
     }
 }

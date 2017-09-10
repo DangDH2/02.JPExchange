@@ -19,6 +19,6 @@ namespace DAL
         public System.Guid PostTagId { get; set; }
     
         public virtual Post Post { get; set; }
-        public virtual TAG TAG { get; set; }
+        public virtual TAG Tag { get; set; }
     }
 }

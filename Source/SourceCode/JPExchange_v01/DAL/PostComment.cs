@@ -25,7 +25,7 @@ namespace DAL
         public Nullable<System.Guid> ModifiedBy { get; set; }
     
         public virtual Post Post { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
+        public virtual User CreatedUser { get; set; }
+        public virtual User ModifiedUser { get; set; }
     }
 }

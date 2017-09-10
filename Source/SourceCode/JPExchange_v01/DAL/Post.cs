@@ -16,13 +16,13 @@ namespace DAL
     {
         public Post()
         {
-            this.Bookmark = new HashSet<Bookmark>();
-            this.Media = new HashSet<Media>();
-            this.Order = new HashSet<Order>();
-            this.PostComment = new HashSet<PostComment>();
-            this.PostLocation = new HashSet<PostLocation>();
-            this.PostTag = new HashSet<PostTag>();
-            this.Rating = new HashSet<Rating>();
+            this.ListBookmark = new HashSet<Bookmark>();
+            this.ListMedia = new HashSet<Media>();
+            this.ListOrder = new HashSet<Order>();
+            this.ListPostComment = new HashSet<PostComment>();
+            this.ListPostLocation = new HashSet<PostLocation>();
+            this.ListPostTag = new HashSet<PostTag>();
+            this.ListRating = new HashSet<Rating>();
         }
     
         public System.Guid PostId { get; set; }
@@ -39,17 +39,17 @@ namespace DAL
         public Nullable<System.Guid> ModifiedBy { get; set; }
         public Nullable<System.Guid> LevelId { get; set; }
     
-        public virtual ICollection<Bookmark> Bookmark { get; set; }
-        public virtual CATEGORY CATEGORY { get; set; }
-        public virtual LEVEL LEVEL { get; set; }
-        public virtual ICollection<Media> Media { get; set; }
-        public virtual ICollection<Order> Order { get; set; }
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual User User2 { get; set; }
-        public virtual ICollection<PostComment> PostComment { get; set; }
-        public virtual ICollection<PostLocation> PostLocation { get; set; }
-        public virtual ICollection<PostTag> PostTag { get; set; }
-        public virtual ICollection<Rating> Rating { get; set; }
+        public virtual ICollection<Bookmark> ListBookmark { get; set; }
+        public virtual CATEGORY Category { get; set; }
+        public virtual LEVEL Level { get; set; }
+        public virtual ICollection<Media> ListMedia { get; set; }
+        public virtual ICollection<Order> ListOrder { get; set; }
+        public virtual User OwnerUser { get; set; }
+        public virtual User CreatedUser { get; set; }
+        public virtual User ModifiedUser { get; set; }
+        public virtual ICollection<PostComment> ListPostComment { get; set; }
+        public virtual ICollection<PostLocation> ListPostLocation { get; set; }
+        public virtual ICollection<PostTag> ListPostTag { get; set; }
+        public virtual ICollection<Rating> ListRating { get; set; }
     }
 }

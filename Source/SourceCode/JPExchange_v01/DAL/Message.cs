@@ -26,9 +26,9 @@ namespace DAL
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<System.Guid> ModifiedBy { get; set; }
     
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
-        public virtual User User2 { get; set; }
-        public virtual User User3 { get; set; }
+        public virtual User CreatedUser { get; set; }
+        public virtual User UserFrom { get; set; }
+        public virtual User ModifiedUser { get; set; }
+        public virtual User UserTo { get; set; }
     }
 }
