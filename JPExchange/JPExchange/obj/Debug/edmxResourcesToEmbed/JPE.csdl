@@ -18,9 +18,9 @@
     <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="ParentId" Type="Guid" />
     <Property Name="Index" Type="Byte" />
-    <NavigationProperty Name="ChildCategory" Relationship="Self.FK_CATEGORY_CATEGORY" FromRole="CATEGORY" ToRole="CATEGORY1" />
+    <NavigationProperty Name="ListChild" Relationship="Self.FK_CATEGORY_CATEGORY" FromRole="CATEGORY" ToRole="CATEGORY1" />
     <NavigationProperty Name="Parent" Relationship="Self.FK_CATEGORY_CATEGORY" FromRole="CATEGORY1" ToRole="CATEGORY" />
-    <NavigationProperty Name="Post" Relationship="Self.FK_Post_CATEGORY" FromRole="CATEGORY" ToRole="Post" />
+    <NavigationProperty Name="ListPost" Relationship="Self.FK_Post_CATEGORY" FromRole="CATEGORY" ToRole="Post" />
   </EntityType>
   <EntityType Name="LEVEL">
     <Key>
@@ -76,10 +76,10 @@
     <Property Name="CreatedBy" Type="Guid" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Guid" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Messages_Users_Created" FromRole="Message" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Messages_Users_From" FromRole="Message" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_Messages_Users_Modified" FromRole="Message" ToRole="User" />
-    <NavigationProperty Name="User3" Relationship="Self.FK_Messages_Users_To" FromRole="Message" ToRole="User" />
+    <NavigationProperty Name="CreatedUser" Relationship="Self.FK_Messages_Users_Created" FromRole="Message" ToRole="User" />
+    <NavigationProperty Name="UserFrom" Relationship="Self.FK_Messages_Users_From" FromRole="Message" ToRole="User" />
+    <NavigationProperty Name="ModifiedUser" Relationship="Self.FK_Messages_Users_Modified" FromRole="Message" ToRole="User" />
+    <NavigationProperty Name="UserTo" Relationship="Self.FK_Messages_Users_To" FromRole="Message" ToRole="User" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -101,8 +101,8 @@
     <Property Name="ModifiedBy" Type="Guid" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Orders_Post" FromRole="Order" ToRole="Post" />
     <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Order" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Orders_Users1" FromRole="Order" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_Orders_Users2" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="CreatedUser" Relationship="Self.FK_Orders_Users1" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="ModifiedUser" Relationship="Self.FK_Orders_Users2" FromRole="Order" ToRole="User" />
   </EntityType>
   <EntityType Name="Post">
     <Key>
@@ -122,17 +122,17 @@
     <Property Name="ModifiedBy" Type="Guid" />
     <Property Name="LevelId" Type="Guid" />
     <NavigationProperty Name="Bookmark" Relationship="Self.FK_Bookmarks_Post" FromRole="Post" ToRole="Bookmark" />
-    <NavigationProperty Name="CATEGORY" Relationship="Self.FK_Post_CATEGORY" FromRole="Post" ToRole="CATEGORY" />
-    <NavigationProperty Name="LEVEL" Relationship="Self.FK_Post_LEVELS" FromRole="Post" ToRole="LEVEL" />
-    <NavigationProperty Name="Media" Relationship="Self.FK_Media_Post" FromRole="Post" ToRole="Media" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_Post" FromRole="Post" ToRole="Order" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Post_Users" FromRole="Post" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Post_Users1" FromRole="Post" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_Post_Users2" FromRole="Post" ToRole="User" />
-    <NavigationProperty Name="PostComment" Relationship="Self.FK_PostComments_Post" FromRole="Post" ToRole="PostComment" />
-    <NavigationProperty Name="PostLocation" Relationship="Self.FK_PostLocation_Post" FromRole="Post" ToRole="PostLocation" />
-    <NavigationProperty Name="PostTag" Relationship="Self.FK_PostTags_Post" FromRole="Post" ToRole="PostTag" />
-    <NavigationProperty Name="Rating" Relationship="Self.FK_Rating_Post" FromRole="Post" ToRole="Rating" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Post_CATEGORY" FromRole="Post" ToRole="CATEGORY" />
+    <NavigationProperty Name="Level" Relationship="Self.FK_Post_LEVELS" FromRole="Post" ToRole="LEVEL" />
+    <NavigationProperty Name="ListMedia" Relationship="Self.FK_Media_Post" FromRole="Post" ToRole="Media" />
+    <NavigationProperty Name="ListOrder" Relationship="Self.FK_Orders_Post" FromRole="Post" ToRole="Order" />
+    <NavigationProperty Name="UserOwner" Relationship="Self.FK_Post_Users" FromRole="Post" ToRole="User" />
+    <NavigationProperty Name="CreatedUser" Relationship="Self.FK_Post_Users1" FromRole="Post" ToRole="User" />
+    <NavigationProperty Name="ModifiedUser" Relationship="Self.FK_Post_Users2" FromRole="Post" ToRole="User" />
+    <NavigationProperty Name="ListComment" Relationship="Self.FK_PostComments_Post" FromRole="Post" ToRole="PostComment" />
+    <NavigationProperty Name="ListPostLocation" Relationship="Self.FK_PostLocation_Post" FromRole="Post" ToRole="PostLocation" />
+    <NavigationProperty Name="ListPostTag" Relationship="Self.FK_PostTags_Post" FromRole="Post" ToRole="PostTag" />
+    <NavigationProperty Name="ListRating" Relationship="Self.FK_Rating_Post" FromRole="Post" ToRole="Rating" />
   </EntityType>
   <EntityType Name="PostComment">
     <Key>
@@ -148,8 +148,8 @@
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Guid" />
     <NavigationProperty Name="Post" Relationship="Self.FK_PostComments_Post" FromRole="PostComment" ToRole="Post" />
-    <NavigationProperty Name="User" Relationship="Self.FK_PostComments_Users" FromRole="PostComment" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_PostComments_Users1" FromRole="PostComment" ToRole="User" />
+    <NavigationProperty Name="CreatedUser" Relationship="Self.FK_PostComments_Users" FromRole="PostComment" ToRole="User" />
+    <NavigationProperty Name="ModifiedUser" Relationship="Self.FK_PostComments_Users1" FromRole="PostComment" ToRole="User" />
   </EntityType>
   <EntityType Name="PostLocation">
     <Key>
@@ -158,7 +158,7 @@
     <Property Name="PostId" Type="Guid" Nullable="false" />
     <Property Name="LocationId" Type="Guid" Nullable="false" />
     <Property Name="PostLocationId" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="LOCATION" Relationship="Self.FK_PostLocation_LOCATION" FromRole="PostLocation" ToRole="LOCATION" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_PostLocation_LOCATION" FromRole="PostLocation" ToRole="LOCATION" />
     <NavigationProperty Name="Post" Relationship="Self.FK_PostLocation_Post" FromRole="PostLocation" ToRole="Post" />
   </EntityType>
   <EntityType Name="PostTag">
@@ -169,7 +169,7 @@
     <Property Name="TagId" Type="Guid" />
     <Property Name="PostTagId" Type="Guid" Nullable="false" />
     <NavigationProperty Name="Post" Relationship="Self.FK_PostTags_Post" FromRole="PostTag" ToRole="Post" />
-    <NavigationProperty Name="TAG" Relationship="Self.FK_PostTags_TAGS" FromRole="PostTag" ToRole="TAG" />
+    <NavigationProperty Name="Tag" Relationship="Self.FK_PostTags_TAGS" FromRole="PostTag" ToRole="TAG" />
   </EntityType>
   <EntityType Name="Rating">
     <Key>
@@ -212,28 +212,18 @@
     <Property Name="ModifiedBy" Type="Guid" />
     <Property Name="LevelId" Type="Guid" />
     <Property Name="Role" Type="Byte" />
-    <NavigationProperty Name="Bookmark" Relationship="Self.FK_Bookmarks_Users" FromRole="User" ToRole="Bookmark" />
-    <NavigationProperty Name="LEVEL" Relationship="Self.FK_Users_LEVELS" FromRole="User" ToRole="LEVEL" />
-    <NavigationProperty Name="Message" Relationship="Self.FK_Messages_Users_Created" FromRole="User" ToRole="Message" />
-    <NavigationProperty Name="Message1" Relationship="Self.FK_Messages_Users_From" FromRole="User" ToRole="Message" />
-    <NavigationProperty Name="Message2" Relationship="Self.FK_Messages_Users_Modified" FromRole="User" ToRole="Message" />
-    <NavigationProperty Name="Message3" Relationship="Self.FK_Messages_Users_To" FromRole="User" ToRole="Message" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Orders_Users" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="Order1" Relationship="Self.FK_Orders_Users1" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="Order2" Relationship="Self.FK_Orders_Users2" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="Post" Relationship="Self.FK_Post_Users" FromRole="User" ToRole="Post" />
-    <NavigationProperty Name="Post1" Relationship="Self.FK_Post_Users1" FromRole="User" ToRole="Post" />
-    <NavigationProperty Name="Post2" Relationship="Self.FK_Post_Users2" FromRole="User" ToRole="Post" />
-    <NavigationProperty Name="PostComment" Relationship="Self.FK_PostComments_Users" FromRole="User" ToRole="PostComment" />
-    <NavigationProperty Name="PostComment1" Relationship="Self.FK_PostComments_Users1" FromRole="User" ToRole="PostComment" />
-    <NavigationProperty Name="Rating1" Relationship="Self.FK_Rating_Users" FromRole="User" ToRole="Rating" />
-    <NavigationProperty Name="UserDetail" Relationship="Self.FK_UserDetails_Users" FromRole="User" ToRole="UserDetail" />
-    <NavigationProperty Name="UserDetail1" Relationship="Self.FK_UserDetails_Users1" FromRole="User" ToRole="UserDetail" />
-    <NavigationProperty Name="UserDetail2" Relationship="Self.FK_Users_UserDetails" FromRole="User" ToRole="UserDetail" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Users_Users" FromRole="User" ToRole="User1" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_Users_Users" FromRole="User1" ToRole="User" />
-    <NavigationProperty Name="User11" Relationship="Self.FK_Users_Users1" FromRole="User" ToRole="User1" />
-    <NavigationProperty Name="User3" Relationship="Self.FK_Users_Users1" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="ListBookmarkPost" Relationship="Self.FK_Bookmarks_Users" FromRole="User" ToRole="Bookmark" />
+    <NavigationProperty Name="Level" Relationship="Self.FK_Users_LEVELS" FromRole="User" ToRole="LEVEL" />
+    <NavigationProperty Name="ListCreatedMessage" Relationship="Self.FK_Messages_Users_Created" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="ListSendMessages" Relationship="Self.FK_Messages_Users_From" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="ListReceivedMessage" Relationship="Self.FK_Messages_Users_To" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="ListOrderOwner" Relationship="Self.FK_Orders_Users" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="ListOrderCreated" Relationship="Self.FK_Orders_Users1" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="ListPostOwner" Relationship="Self.FK_Post_Users" FromRole="User" ToRole="Post" />
+    <NavigationProperty Name="ListPostCreated" Relationship="Self.FK_Post_Users1" FromRole="User" ToRole="Post" />
+    <NavigationProperty Name="UserDetail" Relationship="Self.FK_Users_UserDetails" FromRole="User" ToRole="UserDetail" />
+    <NavigationProperty Name="ModifiedUser" Relationship="Self.FK_Users_Users" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="CreatedUser" Relationship="Self.FK_Users_Users1" FromRole="User1" ToRole="User" />
   </EntityType>
   <EntityType Name="UserDetail">
     <Key>
@@ -257,10 +247,10 @@
     <Property Name="CreatedBy" Type="Guid" />
     <Property Name="ModifiedDate" Type="Guid" />
     <Property Name="ModifiedBy" Type="Guid" />
-    <NavigationProperty Name="LOCATION" Relationship="Self.FK_UserDetails_LOCATION" FromRole="UserDetail" ToRole="LOCATION" />
-    <NavigationProperty Name="User" Relationship="Self.FK_UserDetails_Users" FromRole="UserDetail" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_UserDetails_Users1" FromRole="UserDetail" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_Users_UserDetails" FromRole="UserDetail" ToRole="User" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_UserDetails_LOCATION" FromRole="UserDetail" ToRole="LOCATION" />
+    <NavigationProperty Name="CreatedUser" Relationship="Self.FK_UserDetails_Users" FromRole="UserDetail" ToRole="User" />
+    <NavigationProperty Name="ModifiedUser" Relationship="Self.FK_UserDetails_Users1" FromRole="UserDetail" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Users_UserDetails" FromRole="UserDetail" ToRole="User" />
   </EntityType>
   <Association Name="FK_Bookmarks_Post">
     <End Role="Post" Type="Self.Post" Multiplicity="0..1" />

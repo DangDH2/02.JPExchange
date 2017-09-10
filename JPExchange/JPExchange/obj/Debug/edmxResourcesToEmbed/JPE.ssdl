@@ -520,7 +520,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserDetails_Users">
+  <Association Name="FK_UserDetails_Users_Created">
     <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -532,7 +532,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserDetails_Users1">
+  <Association Name="FK_UserDetails_Users_Modify">
     <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -717,11 +717,11 @@
       <End Role="LOCATION" EntitySet="LOCATION" />
       <End Role="UserDetail" EntitySet="UserDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserDetails_Users" Association="Self.FK_UserDetails_Users">
+    <AssociationSet Name="FK_UserDetails_Users_Created" Association="Self.FK_UserDetails_Users_Created">
       <End Role="User" EntitySet="User" />
       <End Role="UserDetail" EntitySet="UserDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserDetails_Users1" Association="Self.FK_UserDetails_Users1">
+    <AssociationSet Name="FK_UserDetails_Users_Modify" Association="Self.FK_UserDetails_Users_Modify">
       <End Role="User" EntitySet="User" />
       <End Role="UserDetail" EntitySet="UserDetail" />
     </AssociationSet>
