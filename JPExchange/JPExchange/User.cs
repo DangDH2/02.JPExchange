@@ -19,21 +19,11 @@ namespace JPExchange
             this.ListBookmarkPost = new HashSet<Bookmark>();
             this.ListCreatedMessage = new HashSet<Message>();
             this.ListSendMessages = new HashSet<Message>();
-            this.Message2 = new HashSet<Message>();
             this.ListReceivedMessage = new HashSet<Message>();
-            this.Order = new HashSet<Order>();
-            this.Order1 = new HashSet<Order>();
-            this.Order2 = new HashSet<Order>();
-            this.Post = new HashSet<Post>();
-            this.Post1 = new HashSet<Post>();
-            this.Post2 = new HashSet<Post>();
-            this.PostComment = new HashSet<PostComment>();
-            this.PostComment1 = new HashSet<PostComment>();
-            this.Rating1 = new HashSet<Rating>();
-            this.UserDetail = new HashSet<UserDetail>();
-            this.UserDetail1 = new HashSet<UserDetail>();
-            this.User1 = new HashSet<User>();
-            this.User11 = new HashSet<User>();
+            this.ListOrderOwner = new HashSet<Order>();
+            this.ListOrderCreated = new HashSet<Order>();
+            this.ListPostOwner = new HashSet<Post>();
+            this.ListPostCreated = new HashSet<Post>();
         }
     
         public System.Guid UserId { get; set; }
@@ -59,23 +49,13 @@ namespace JPExchange
         public virtual LEVEL Level { get; set; }
         public virtual ICollection<Message> ListCreatedMessage { get; set; }
         public virtual ICollection<Message> ListSendMessages { get; set; }
-        public virtual ICollection<Message> Message2 { get; set; }
         public virtual ICollection<Message> ListReceivedMessage { get; set; }
-        public virtual ICollection<Order> Order { get; set; }
-        public virtual ICollection<Order> Order1 { get; set; }
-        public virtual ICollection<Order> Order2 { get; set; }
-        public virtual ICollection<Post> Post { get; set; }
-        public virtual ICollection<Post> Post1 { get; set; }
-        public virtual ICollection<Post> Post2 { get; set; }
-        public virtual ICollection<PostComment> PostComment { get; set; }
-        public virtual ICollection<PostComment> PostComment1 { get; set; }
-        public virtual ICollection<Rating> Rating1 { get; set; }
-        public virtual ICollection<UserDetail> UserDetail { get; set; }
-        public virtual ICollection<UserDetail> UserDetail1 { get; set; }
-        public virtual UserDetail UserDetail2 { get; set; }
-        public virtual ICollection<User> User1 { get; set; }
-        public virtual User User2 { get; set; }
-        public virtual ICollection<User> User11 { get; set; }
-        public virtual User User3 { get; set; }
+        public virtual ICollection<Order> ListOrderOwner { get; set; }
+        public virtual ICollection<Order> ListOrderCreated { get; set; }
+        public virtual ICollection<Post> ListPostOwner { get; set; }
+        public virtual ICollection<Post> ListPostCreated { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
+        public virtual User ModifiedUser { get; set; }
+        public virtual User CreatedUser { get; set; }
     }
 }
