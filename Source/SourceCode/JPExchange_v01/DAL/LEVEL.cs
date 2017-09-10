@@ -16,15 +16,15 @@ namespace DAL
     {
         public LEVEL()
         {
-            this.Post = new HashSet<Post>();
-            this.User = new HashSet<User>();
+            this.ListPost = new HashSet<Post>();
+            this.ListUser = new HashSet<User>();
         }
     
         public System.Guid LevelId { get; set; }
         public string LevelType { get; set; }
         public Nullable<byte> Value { get; set; }
     
-        public virtual ICollection<Post> Post { get; set; }
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<Post> ListPost { get; set; }
+        public virtual ICollection<User> ListUser { get; set; }
     }
 }

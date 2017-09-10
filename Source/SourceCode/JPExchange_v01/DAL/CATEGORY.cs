@@ -17,7 +17,7 @@ namespace DAL
         public CATEGORY()
         {
             this.ListChild = new HashSet<CATEGORY>();
-            this.Post = new HashSet<Post>();
+            this.ListPost = new HashSet<Post>();
         }
     
         public System.Guid CategoryId { get; set; }
@@ -27,6 +27,6 @@ namespace DAL
     
         public virtual ICollection<CATEGORY> ListChild { get; set; }
         public virtual CATEGORY Parent { get; set; }
-        public virtual ICollection<Post> Post { get; set; }
+        public virtual ICollection<Post> ListPost { get; set; }
     }
 }
