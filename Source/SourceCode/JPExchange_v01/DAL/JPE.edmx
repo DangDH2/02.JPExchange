@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JPEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bookmark">
+          <Key>
+            <PropertyRef Name="BookmarkId" />
+          </Key>
+          <Property Name="BookmarkId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="ParentId" Type="uniqueidentifier" />
+          <Property Name="Index" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="LEVEL">
+          <Key>
+            <PropertyRef Name="LevelId" />
+          </Key>
+          <Property Name="LevelId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LevelType" Type="varchar" MaxLength="20" />
+          <Property Name="Value" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Index" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="MASTER">
+          <Key>
+            <PropertyRef Name="MKEY" />
+          </Key>
+          <Property Name="MKEY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MVALUE" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaId" />
+          </Key>
+          <Property Name="MediaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostId" Type="uniqueidentifier" />
+          <Property Name="MediaLink" Type="nvarchar" MaxLength="200" />
+          <Property Name="Type" Type="tinyint" />
+          <Property Name="Index" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserFromId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserToId" Type="uniqueidentifier" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ImportantLevel" Type="tinyint" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostId" Type="uniqueidentifier" />
+          <Property Name="OrderUserId" Type="uniqueidentifier" />
+          <Property Name="OrderContent" Type="nvarchar" MaxLength="2000" />
+          <Property Name="OrderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderAddress" Type="nvarchar" MaxLength="300" />
+          <Property Name="OrderPhone" Type="varchar" MaxLength="15" />
+          <Property Name="OrderEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="ShipMethod" Type="tinyint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="CategoryId" Type="uniqueidentifier" />
+          <Property Name="Price" Type="float" />
+          <Property Name="PriceSale" Type="float" />
+          <Property Name="ValidDate" Type="date" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="LevelId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="PostComment">
+          <Key>
+            <PropertyRef Name="PostCommentId" />
+          </Key>
+          <Property Name="PostCommentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostId" Type="uniqueidentifier" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="Pinned" Type="tinyint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="PostLocation">
+          <Key>
+            <PropertyRef Name="PostLocationId" />
+          </Key>
+          <Property Name="PostId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostLocationId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostTag">
+          <Key>
+            <PropertyRef Name="PostTagId" />
+          </Key>
+          <Property Name="PostId" Type="uniqueidentifier" />
+          <Property Name="TagId" Type="uniqueidentifier" />
+          <Property Name="PostTagId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="RatingId" />
+          </Key>
+          <Property Name="RatingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="Rating" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="TAG">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="tinyint" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="UserDetailId" Type="uniqueidentifier" />
+          <Property Name="Rating" Type="tinyint" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="LastLoginDate" Type="date" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="LevelId" Type="uniqueidentifier" />
+          <Property Name="Role" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="UserDetailId" />
+          </Key>
+          <Property Name="UserDetailId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecondEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecondPhone" Type="varchar" MaxLength="15" />
+          <Property Name="Bio" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="100" />
+          <Property Name="LocationX" Type="varchar" MaxLength="18" />
+          <Property Name="LocationY" Type="varchar" MaxLength="18" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" />
+          <Property Name="LocationId" Type="uniqueidentifier" />
+          <Property Name="Ward" Type="nvarchar" MaxLength="50" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="uniqueidentifier" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_Bookmarks_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Bookmark" Type="Self.Bookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Bookmark">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookmarks_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Bookmark" Type="Self.Bookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Bookmark">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATEGORY_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="CATEGORY1" Type="Self.CATEGORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CATEGORY1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_Created">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_From">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserFromId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_Modified">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_To">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_LEVELS">
+          <End Role="LEVEL" Type="Self.LEVEL" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LEVEL">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostComments_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="PostComment" Type="Self.PostComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="PostComment">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostComments_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostComment" Type="Self.PostComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PostComment">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostComments_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostComment" Type="Self.PostComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PostComment">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostLocation_LOCATION">
+          <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="1" />
+          <End Role="PostLocation" Type="Self.PostLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="PostLocation">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostLocation_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="PostLocation" Type="Self.PostLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="PostLocation">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTags_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTags_TAGS">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_LOCATION">
+          <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="0..1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_Users_Created">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_Users_Modify">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_LEVELS">
+          <End Role="LEVEL" Type="Self.LEVEL" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LEVEL">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserDetails">
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetail">
+              <PropertyRef Name="UserDetailId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JPEModelStoreContainer">
+          <EntitySet Name="Bookmark" EntityType="Self.Bookmark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LEVEL" EntityType="Self.LEVEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOCATION" EntityType="Self.LOCATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MASTER" EntityType="Self.MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostComment" EntityType="Self.PostComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostLocation" EntityType="Self.PostLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostTag" EntityType="Self.PostTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAG" EntityType="Self.TAG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDetail" EntityType="Self.UserDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bookmarks_Post" Association="Self.FK_Bookmarks_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Bookmark" EntitySet="Bookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookmarks_Users" Association="Self.FK_Bookmarks_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Bookmark" EntitySet="Bookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATEGORY_CATEGORY" Association="Self.FK_CATEGORY_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="CATEGORY1" EntitySet="CATEGORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_Post" Association="Self.FK_Media_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_Created" Association="Self.FK_Messages_Users_Created">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_From" Association="Self.FK_Messages_Users_From">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_Modified" Association="Self.FK_Messages_Users_Modified">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_To" Association="Self.FK_Messages_Users_To">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Post" Association="Self.FK_Orders_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users1" Association="Self.FK_Orders_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users2" Association="Self.FK_Orders_Users2">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_CATEGORY" Association="Self.FK_Post_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_LEVELS" Association="Self.FK_Post_LEVELS">
+            <End Role="LEVEL" EntitySet="LEVEL" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users" Association="Self.FK_Post_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users1" Association="Self.FK_Post_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users2" Association="Self.FK_Post_Users2">
+            <End Role="User" EntitySet="User" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostComments_Post" Association="Self.FK_PostComments_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostComment" EntitySet="PostComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostComments_Users" Association="Self.FK_PostComments_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostComment" EntitySet="PostComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostComments_Users1" Association="Self.FK_PostComments_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostComment" EntitySet="PostComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostLocation_LOCATION" Association="Self.FK_PostLocation_LOCATION">
+            <End Role="LOCATION" EntitySet="LOCATION" />
+            <End Role="PostLocation" EntitySet="PostLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostLocation_Post" Association="Self.FK_PostLocation_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostLocation" EntitySet="PostLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTags_Post" Association="Self.FK_PostTags_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTags_TAGS" Association="Self.FK_PostTags_TAGS">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Post" Association="Self.FK_Rating_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Users" Association="Self.FK_Rating_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_LOCATION" Association="Self.FK_UserDetails_LOCATION">
+            <End Role="LOCATION" EntitySet="LOCATION" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_Users_Created" Association="Self.FK_UserDetails_Users_Created">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_Users_Modify" Association="Self.FK_UserDetails_Users_Modify">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_LEVELS" Association="Self.FK_Users_LEVELS">
+            <End Role="LEVEL" EntitySet="LEVEL" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserDetails" Association="Self.FK_Users_UserDetails">
+            <End Role="UserDetail" EntitySet="UserDetail" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Users" Association="Self.FK_Users_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Users1" Association="Self.FK_Users_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JPEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bookmark">
+          <Key>
+            <PropertyRef Name="BookmarkId" />
+          </Key>
+          <Property Name="BookmarkId" Type="Guid" Nullable="false" />
+          <Property Name="PostId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Bookmarks_Post" FromRole="Bookmark" ToRole="Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Bookmarks_Users" FromRole="Bookmark" ToRole="User" />
+        </EntityType>
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ParentId" Type="Guid" />
+          <Property Name="Index" Type="Byte" />
+          <NavigationProperty Name="ListChild" Relationship="Self.FK_CATEGORY_CATEGORY" FromRole="CATEGORY" ToRole="CATEGORY1" />
+          <NavigationProperty Name="Parent" Relationship="Self.FK_CATEGORY_CATEGORY" FromRole="CATEGORY1" ToRole="CATEGORY" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_CATEGORY" FromRole="CATEGORY" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="LEVEL">
+          <Key>
+            <PropertyRef Name="LevelId" />
+          </Key>
+          <Property Name="LevelId" Type="Guid" Nullable="false" />
+          <Property Name="LevelType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Byte" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_LEVELS" FromRole="LEVEL" ToRole="Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Users_LEVELS" FromRole="LEVEL" ToRole="User" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="Guid" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Index" Type="Byte" />
+          <NavigationProperty Name="PostLocation" Relationship="Self.FK_PostLocation_LOCATION" FromRole="LOCATION" ToRole="PostLocation" />
+          <NavigationProperty Name="UserDetail" Relationship="Self.FK_UserDetails_LOCATION" FromRole="LOCATION" ToRole="UserDetail" />
+        </EntityType>
+        <EntityType Name="MASTER">
+          <Key>
+            <PropertyRef Name="MKEY" />
+          </Key>
+          <Property Name="MKEY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MVALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaId" />
+          </Key>
+          <Property Name="MediaId" Type="Guid" Nullable="false" />
+          <Property Name="PostId" Type="Guid" />
+          <Property Name="MediaLink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Byte" />
+          <Property Name="Index" Type="Byte" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Media_Post" FromRole="Media" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="Guid" Nullable="false" />
+          <Property Name="UserFromId" Type="Guid" Nullable="false" />
+          <Property Name="UserToId" Type="Guid" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ImportantLevel" Type="Byte" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Messages_Users_Created" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Messages_Users_From" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Messages_Users_Modified" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="User3" Relationship="Self.FK_Messages_Users_To" FromRole="Message" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="PostId" Type="Guid" />
+          <Property Name="OrderUserId" Type="Guid" />
+          <Property Name="OrderContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="OrderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderAddress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="OrderPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OrderEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ShipMethod" Type="Byte" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Orders_Post" FromRole="Order" ToRole="Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Orders_Users1" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Orders_Users2" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="CategoryId" Type="Guid" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="PriceSale" Type="Double" />
+          <Property Name="ValidDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="LevelId" Type="Guid" />
+          <NavigationProperty Name="Bookmark" Relationship="Self.FK_Bookmarks_Post" FromRole="Post" ToRole="Bookmark" />
+          <NavigationProperty Name="CATEGORY" Relationship="Self.FK_Post_CATEGORY" FromRole="Post" ToRole="CATEGORY" />
+          <NavigationProperty Name="LEVEL" Relationship="Self.FK_Post_LEVELS" FromRole="Post" ToRole="LEVEL" />
+          <NavigationProperty Name="Media" Relationship="Self.FK_Media_Post" FromRole="Post" ToRole="Media" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Orders_Post" FromRole="Post" ToRole="Order" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Post_Users" FromRole="Post" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Post_Users1" FromRole="Post" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Post_Users2" FromRole="Post" ToRole="User" />
+          <NavigationProperty Name="PostComment" Relationship="Self.FK_PostComments_Post" FromRole="Post" ToRole="PostComment" />
+          <NavigationProperty Name="PostLocation" Relationship="Self.FK_PostLocation_Post" FromRole="Post" ToRole="PostLocation" />
+          <NavigationProperty Name="PostTag" Relationship="Self.FK_PostTags_Post" FromRole="Post" ToRole="PostTag" />
+          <NavigationProperty Name="Rating" Relationship="Self.FK_Rating_Post" FromRole="Post" ToRole="Rating" />
+        </EntityType>
+        <EntityType Name="PostComment">
+          <Key>
+            <PropertyRef Name="PostCommentId" />
+          </Key>
+          <Property Name="PostCommentId" Type="Guid" Nullable="false" />
+          <Property Name="PostId" Type="Guid" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Pinned" Type="Byte" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_PostComments_Post" FromRole="PostComment" ToRole="Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK_PostComments_Users" FromRole="PostComment" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_PostComments_Users1" FromRole="PostComment" ToRole="User" />
+        </EntityType>
+        <EntityType Name="PostLocation">
+          <Key>
+            <PropertyRef Name="PostLocationId" />
+          </Key>
+          <Property Name="PostId" Type="Guid" Nullable="false" />
+          <Property Name="LocationId" Type="Guid" Nullable="false" />
+          <Property Name="PostLocationId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="LOCATION" Relationship="Self.FK_PostLocation_LOCATION" FromRole="PostLocation" ToRole="LOCATION" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_PostLocation_Post" FromRole="PostLocation" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="PostTag">
+          <Key>
+            <PropertyRef Name="PostTagId" />
+          </Key>
+          <Property Name="PostId" Type="Guid" />
+          <Property Name="TagId" Type="Guid" />
+          <Property Name="PostTagId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_PostTags_Post" FromRole="PostTag" ToRole="Post" />
+          <NavigationProperty Name="TAG" Relationship="Self.FK_PostTags_TAGS" FromRole="PostTag" ToRole="TAG" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="RatingId" />
+          </Key>
+          <Property Name="RatingId" Type="Guid" Nullable="false" />
+          <Property Name="PostId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="Rating1" Type="Byte" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Rating_Post" FromRole="Rating" ToRole="Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Rating_Users" FromRole="Rating" ToRole="User" />
+        </EntityType>
+        <EntityType Name="TAG">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PostTag" Relationship="Self.FK_PostTags_TAGS" FromRole="TAG" ToRole="PostTag" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Byte" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UserDetailId" Type="Guid" />
+          <Property Name="Rating" Type="Byte" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="LevelId" Type="Guid" />
+          <Property Name="Role" Type="Byte" />
+          <NavigationProperty Name="Bookmark" Relationship="Self.FK_Bookmarks_Users" FromRole="User" ToRole="Bookmark" />
+          <NavigationProperty Name="LEVEL" Relationship="Self.FK_Users_LEVELS" FromRole="User" ToRole="LEVEL" />
+          <NavigationProperty Name="Message" Relationship="Self.FK_Messages_Users_Created" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Message1" Relationship="Self.FK_Messages_Users_From" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Message2" Relationship="Self.FK_Messages_Users_Modified" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Message3" Relationship="Self.FK_Messages_Users_To" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Orders_Users" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Order1" Relationship="Self.FK_Orders_Users1" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Order2" Relationship="Self.FK_Orders_Users2" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_Users" FromRole="User" ToRole="Post" />
+          <NavigationProperty Name="Post1" Relationship="Self.FK_Post_Users1" FromRole="User" ToRole="Post" />
+          <NavigationProperty Name="Post2" Relationship="Self.FK_Post_Users2" FromRole="User" ToRole="Post" />
+          <NavigationProperty Name="PostComment" Relationship="Self.FK_PostComments_Users" FromRole="User" ToRole="PostComment" />
+          <NavigationProperty Name="PostComment1" Relationship="Self.FK_PostComments_Users1" FromRole="User" ToRole="PostComment" />
+          <NavigationProperty Name="Rating1" Relationship="Self.FK_Rating_Users" FromRole="User" ToRole="Rating" />
+          <NavigationProperty Name="UserDetail" Relationship="Self.FK_UserDetails_Users_Created" FromRole="User" ToRole="UserDetail" />
+          <NavigationProperty Name="UserDetail1" Relationship="Self.FK_UserDetails_Users_Modify" FromRole="User" ToRole="UserDetail" />
+          <NavigationProperty Name="UserDetail2" Relationship="Self.FK_Users_UserDetails" FromRole="User" ToRole="UserDetail" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Users_Users" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Users_Users" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="User11" Relationship="Self.FK_Users_Users1" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User3" Relationship="Self.FK_Users_Users1" FromRole="User1" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="UserDetailId" />
+          </Key>
+          <Property Name="UserDetailId" Type="Guid" Nullable="false" />
+          <Property Name="SecondEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecondPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Bio" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LocationX" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="LocationY" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LocationId" Type="Guid" />
+          <Property Name="Ward" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="Guid" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <NavigationProperty Name="LOCATION" Relationship="Self.FK_UserDetails_LOCATION" FromRole="UserDetail" ToRole="LOCATION" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserDetails_Users_Created" FromRole="UserDetail" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_UserDetails_Users_Modify" FromRole="UserDetail" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Users_UserDetails" FromRole="UserDetail" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Bookmarks_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Bookmark" Type="Self.Bookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Bookmark">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookmarks_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Bookmark" Type="Self.Bookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Bookmark">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATEGORY_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="CATEGORY1" Type="Self.CATEGORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CATEGORY1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_LEVELS">
+          <End Role="LEVEL" Type="Self.LEVEL" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LEVEL">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_LEVELS">
+          <End Role="LEVEL" Type="Self.LEVEL" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LEVEL">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostLocation_LOCATION">
+          <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="1" />
+          <End Role="PostLocation" Type="Self.PostLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="PostLocation">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_LOCATION">
+          <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="0..1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_Created">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_From">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserFromId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_Modified">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users_To">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostComments_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="PostComment" Type="Self.PostComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="PostComment">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostLocation_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="PostLocation" Type="Self.PostLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="PostLocation">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTags_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostComments_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostComment" Type="Self.PostComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PostComment">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostComments_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostComment" Type="Self.PostComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PostComment">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTags_TAGS">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_Users_Created">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetails_Users_Modify">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserDetails">
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetail">
+              <PropertyRef Name="UserDetailId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Users">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Users1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JPEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bookmark" EntityType="Self.Bookmark" />
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
+          <EntitySet Name="LEVEL" EntityType="Self.LEVEL" />
+          <EntitySet Name="LOCATION" EntityType="Self.LOCATION" />
+          <EntitySet Name="MASTER" EntityType="Self.MASTER" />
+          <EntitySet Name="Media" EntityType="Self.Media" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="PostComment" EntityType="Self.PostComment" />
+          <EntitySet Name="PostLocation" EntityType="Self.PostLocation" />
+          <EntitySet Name="PostTag" EntityType="Self.PostTag" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" />
+          <EntitySet Name="TAG" EntityType="Self.TAG" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserDetail" EntityType="Self.UserDetail" />
+          <AssociationSet Name="FK_Bookmarks_Post" Association="Self.FK_Bookmarks_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Bookmark" EntitySet="Bookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookmarks_Users" Association="Self.FK_Bookmarks_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Bookmark" EntitySet="Bookmark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATEGORY_CATEGORY" Association="Self.FK_CATEGORY_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="CATEGORY1" EntitySet="CATEGORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_CATEGORY" Association="Self.FK_Post_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_LEVELS" Association="Self.FK_Post_LEVELS">
+            <End Role="LEVEL" EntitySet="LEVEL" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_LEVELS" Association="Self.FK_Users_LEVELS">
+            <End Role="LEVEL" EntitySet="LEVEL" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostLocation_LOCATION" Association="Self.FK_PostLocation_LOCATION">
+            <End Role="LOCATION" EntitySet="LOCATION" />
+            <End Role="PostLocation" EntitySet="PostLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_LOCATION" Association="Self.FK_UserDetails_LOCATION">
+            <End Role="LOCATION" EntitySet="LOCATION" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_Post" Association="Self.FK_Media_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_Created" Association="Self.FK_Messages_Users_Created">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_From" Association="Self.FK_Messages_Users_From">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_Modified" Association="Self.FK_Messages_Users_Modified">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users_To" Association="Self.FK_Messages_Users_To">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Post" Association="Self.FK_Orders_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users1" Association="Self.FK_Orders_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users2" Association="Self.FK_Orders_Users2">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users" Association="Self.FK_Post_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users1" Association="Self.FK_Post_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users2" Association="Self.FK_Post_Users2">
+            <End Role="User" EntitySet="User" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostComments_Post" Association="Self.FK_PostComments_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostComment" EntitySet="PostComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostLocation_Post" Association="Self.FK_PostLocation_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostLocation" EntitySet="PostLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTags_Post" Association="Self.FK_PostTags_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Post" Association="Self.FK_Rating_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostComments_Users" Association="Self.FK_PostComments_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostComment" EntitySet="PostComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostComments_Users1" Association="Self.FK_PostComments_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostComment" EntitySet="PostComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTags_TAGS" Association="Self.FK_PostTags_TAGS">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Users" Association="Self.FK_Rating_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_Users_Created" Association="Self.FK_UserDetails_Users_Created">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetails_Users_Modify" Association="Self.FK_UserDetails_Users_Modify">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserDetails" Association="Self.FK_Users_UserDetails">
+            <End Role="UserDetail" EntitySet="UserDetail" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Users" Association="Self.FK_Users_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Users1" Association="Self.FK_Users_Users1">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JPEModelStoreContainer" CdmEntityContainer="JPEEntities">
+          <EntitySetMapping Name="Bookmark">
+            <EntityTypeMapping TypeName="JPEModel.Bookmark">
+              <MappingFragment StoreEntitySet="Bookmark">
+                <ScalarProperty Name="BookmarkId" ColumnName="BookmarkId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORY">
+            <EntityTypeMapping TypeName="JPEModel.CATEGORY">
+              <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LEVEL">
+            <EntityTypeMapping TypeName="JPEModel.LEVEL">
+              <MappingFragment StoreEntitySet="LEVEL">
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+                <ScalarProperty Name="LevelType" ColumnName="LevelType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCATION">
+            <EntityTypeMapping TypeName="JPEModel.LOCATION">
+              <MappingFragment StoreEntitySet="LOCATION">
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MASTER">
+            <EntityTypeMapping TypeName="JPEModel.MASTER">
+              <MappingFragment StoreEntitySet="MASTER">
+                <ScalarProperty Name="MKEY" ColumnName="MKEY" />
+                <ScalarProperty Name="MVALUE" ColumnName="MVALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Media">
+            <EntityTypeMapping TypeName="JPEModel.Media">
+              <MappingFragment StoreEntitySet="Media">
+                <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="MediaLink" ColumnName="MediaLink" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="JPEModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
+                <ScalarProperty Name="UserToId" ColumnName="UserToId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="ImportantLevel" ColumnName="ImportantLevel" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="JPEModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="OrderUserId" ColumnName="OrderUserId" />
+                <ScalarProperty Name="OrderContent" ColumnName="OrderContent" />
+                <ScalarProperty Name="OrderName" ColumnName="OrderName" />
+                <ScalarProperty Name="OrderAddress" ColumnName="OrderAddress" />
+                <ScalarProperty Name="OrderPhone" ColumnName="OrderPhone" />
+                <ScalarProperty Name="OrderEmail" ColumnName="OrderEmail" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ShipMethod" ColumnName="ShipMethod" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="JPEModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+                <ScalarProperty Name="ValidDate" ColumnName="ValidDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostComment">
+            <EntityTypeMapping TypeName="JPEModel.PostComment">
+              <MappingFragment StoreEntitySet="PostComment">
+                <ScalarProperty Name="PostCommentId" ColumnName="PostCommentId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Pinned" ColumnName="Pinned" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostLocation">
+            <EntityTypeMapping TypeName="JPEModel.PostLocation">
+              <MappingFragment StoreEntitySet="PostLocation">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="PostLocationId" ColumnName="PostLocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostTag">
+            <EntityTypeMapping TypeName="JPEModel.PostTag">
+              <MappingFragment StoreEntitySet="PostTag">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="PostTagId" ColumnName="PostTagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rating">
+            <EntityTypeMapping TypeName="JPEModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Rating1" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAG">
+            <EntityTypeMapping TypeName="JPEModel.TAG">
+              <MappingFragment StoreEntitySet="TAG">
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="JPEModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UserDetailId" ColumnName="UserDetailId" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDetail">
+            <EntityTypeMapping TypeName="JPEModel.UserDetail">
+              <MappingFragment StoreEntitySet="UserDetail">
+                <ScalarProperty Name="UserDetailId" ColumnName="UserDetailId" />
+                <ScalarProperty Name="SecondEmail" ColumnName="SecondEmail" />
+                <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+                <ScalarProperty Name="Bio" ColumnName="Bio" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="LocationX" ColumnName="LocationX" />
+                <ScalarProperty Name="LocationY" ColumnName="LocationY" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Ward" ColumnName="Ward" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
