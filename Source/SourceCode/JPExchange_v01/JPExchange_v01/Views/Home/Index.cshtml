@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<h2>Index</h2>
+
+@section CONTENT_01 {
+    <!-- Load Partical truc tiep-->
+    @{Html.RenderAction("ShowListCategories", "Category");}  
+<br />
+<div id="somedivid"></div>
+}
+
+
+@section SCRIPT_AFTER
+{
+    <script>
+        $.ajax({
+            url: '/Category/ShowListCategories',
+            success: function(result) {
+                $('#somedivid').html(result);
+            }
+        });
+    </script>
+}

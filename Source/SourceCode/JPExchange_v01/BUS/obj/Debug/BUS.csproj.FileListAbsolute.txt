@@ -1,0 +1,9 @@
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\bin\Debug\BUS.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\bin\Debug\BUS.pdb
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\bin\Debug\DAL.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\bin\Debug\EntityFramework.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\bin\Debug\DAL.pdb
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\bin\Debug\EntityFramework.xml
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\obj\Debug\BUS.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\BUS\obj\Debug\BUS.pdb
