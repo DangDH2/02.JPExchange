@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width" />
     @RenderSection("STYLE", required: false)
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+    <!--@Styles.Render("~/Content/css")-->
+    <!-- Bootstrap style -->
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/bootstrap-responsive.min.css")
+    @Styles.Render("~/Content/font-awesome-ie7.css")
+    @Styles.Render("~/Content/font-awesome.css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("SCRIPT_BEFORE", required: false)
