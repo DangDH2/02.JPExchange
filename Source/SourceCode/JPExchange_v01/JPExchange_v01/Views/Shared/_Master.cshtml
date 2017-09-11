@@ -3,14 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    @RenderSection("STYLE", required: false)
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("SCRIPT_BEFORE", required: false)
 </head>
 <body>
     @RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    
+    
+
+
+
+    <div id="STATISTICS">
+
+    </div>
+    <div id="FOOTER">
+
+    </div>
+
+    
+    @RenderSection("SCRIPT_AFTER", required: false)
 </body>
 </html>
