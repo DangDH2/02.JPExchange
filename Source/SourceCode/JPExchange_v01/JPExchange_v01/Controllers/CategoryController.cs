@@ -16,7 +16,7 @@ namespace JPExchange_v01.Controllers
         {
             return View();
         }
-        public ActionResult ShowListCategories()
+        public ActionResult ViewListCategory()
         {
             return PartialView("ListCategories");
         }
