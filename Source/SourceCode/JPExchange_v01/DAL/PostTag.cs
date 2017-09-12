@@ -14,9 +14,9 @@ namespace DAL
     
     public partial class PostTag
     {
-        public Nullable<System.Guid> PostId { get; set; }
-        public Nullable<System.Guid> TagId { get; set; }
-        public System.Guid PostTagId { get; set; }
+        public int PostTagId { get; set; }
+        public Nullable<int> PostId { get; set; }
+        public Nullable<int> TagId { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual TAG Tag { get; set; }

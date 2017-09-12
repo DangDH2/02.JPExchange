@@ -20,7 +20,7 @@ namespace DAL
             this.ListUser = new HashSet<User>();
         }
     
-        public System.Guid LevelId { get; set; }
+        public int LevelId { get; set; }
         public string LevelType { get; set; }
         public Nullable<byte> Value { get; set; }
     

@@ -16,16 +16,16 @@ namespace DAL
     {
         public LOCATION()
         {
-            this.PostLocation = new HashSet<PostLocation>();
-            this.UserDetail = new HashSet<UserDetail>();
+            this.ListPostLocation = new HashSet<PostLocation>();
+            this.ListUserDetail = new HashSet<UserDetail>();
         }
     
-        public System.Guid LocationId { get; set; }
+        public int LocationId { get; set; }
         public string City { get; set; }
         public string District { get; set; }
         public Nullable<byte> Index { get; set; }
     
-        public virtual ICollection<PostLocation> PostLocation { get; set; }
-        public virtual ICollection<UserDetail> UserDetail { get; set; }
+        public virtual ICollection<PostLocation> ListPostLocation { get; set; }
+        public virtual ICollection<UserDetail> ListUserDetail { get; set; }
     }
 }

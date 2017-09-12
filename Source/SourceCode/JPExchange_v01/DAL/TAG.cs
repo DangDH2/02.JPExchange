@@ -16,12 +16,12 @@ namespace DAL
     {
         public TAG()
         {
-            this.PostTag = new HashSet<PostTag>();
+            this.ListPostTag = new HashSet<PostTag>();
         }
     
-        public System.Guid TagId { get; set; }
+        public int TagId { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<PostTag> PostTag { get; set; }
+        public virtual ICollection<PostTag> ListPostTag { get; set; }
     }
 }

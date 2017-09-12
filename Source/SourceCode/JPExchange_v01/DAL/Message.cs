@@ -14,17 +14,17 @@ namespace DAL
     
     public partial class Message
     {
-        public System.Guid MessageId { get; set; }
-        public System.Guid UserFromId { get; set; }
-        public Nullable<System.Guid> UserToId { get; set; }
+        public int MessageId { get; set; }
+        public int UserFromId { get; set; }
+        public Nullable<int> UserToId { get; set; }
         public string Title { get; set; }
         public string Contents { get; set; }
         public Nullable<byte> ImportantLevel { get; set; }
         public string Status { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.Guid> CreatedBy { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public Nullable<System.Guid> ModifiedBy { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
     
         public virtual User CreatedUser { get; set; }
         public virtual User UserFrom { get; set; }

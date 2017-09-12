@@ -12,10 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Media
+    public partial class Medium
     {
-        public System.Guid MediaId { get; set; }
-        public Nullable<System.Guid> PostId { get; set; }
+        public int MediaId { get; set; }
+        public Nullable<int> PostId { get; set; }
         public string MediaLink { get; set; }
         public Nullable<byte> Type { get; set; }
         public Nullable<byte> Index { get; set; }

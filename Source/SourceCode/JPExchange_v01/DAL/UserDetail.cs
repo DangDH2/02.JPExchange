@@ -14,7 +14,12 @@ namespace DAL
     
     public partial class UserDetail
     {
-        public System.Guid UserDetailId { get; set; }
+        public UserDetail()
+        {
+            this.ListUser = new HashSet<User>();
+        }
+    
+        public int UserDetailId { get; set; }
         public string SecondEmail { get; set; }
         public string SecondPhone { get; set; }
         public string Bio { get; set; }
@@ -24,17 +29,18 @@ namespace DAL
         public string LocationX { get; set; }
         public string LocationY { get; set; }
         public string Country { get; set; }
-        public Nullable<System.Guid> LocationId { get; set; }
+        public Nullable<int> LocationId { get; set; }
         public string Ward { get; set; }
         public string Street { get; set; }
         public string Address { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.Guid> CreatedBy { get; set; }
-        public Nullable<System.Guid> ModifiedDate { get; set; }
-        public Nullable<System.Guid> ModifiedBy { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<int> ModifiedDate { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
     
         public virtual LOCATION Location { get; set; }
         public virtual User CreatedUser { get; set; }
         public virtual User ModifiedUser { get; set; }
+        public virtual ICollection<User> ListUser { get; set; }
     }
 }

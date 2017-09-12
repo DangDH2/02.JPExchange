@@ -1,0 +1,10 @@
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\DAL.dll.config
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\DAL.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\DAL.pdb
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\EntityFramework.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\EntityFramework.xml
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\obj\Debug\DAL.dll
+D:\_Projects\02.JPExchange\Source\SourceCode\JPExchange_v01\DAL\obj\Debug\DAL.pdb

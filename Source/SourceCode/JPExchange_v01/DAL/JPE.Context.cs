@@ -25,21 +25,21 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Bookmark> Bookmark { get; set; }
-        public virtual DbSet<CATEGORY> CATEGORY { get; set; }
-        public virtual DbSet<LEVEL> LEVEL { get; set; }
-        public virtual DbSet<LOCATION> LOCATION { get; set; }
-        public virtual DbSet<MASTER> MASTER { get; set; }
-        public virtual DbSet<Media> Media { get; set; }
-        public virtual DbSet<Message> Message { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<Post> Post { get; set; }
-        public virtual DbSet<PostComment> PostComment { get; set; }
-        public virtual DbSet<PostLocation> PostLocation { get; set; }
-        public virtual DbSet<PostTag> PostTag { get; set; }
-        public virtual DbSet<Rating> Rating { get; set; }
-        public virtual DbSet<TAG> TAG { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<UserDetail> UserDetail { get; set; }
+        public virtual DbSet<Bookmark> Bookmarks { get; set; }
+        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
+        public virtual DbSet<LEVEL> LEVELs { get; set; }
+        public virtual DbSet<LOCATION> LOCATIONs { get; set; }
+        public virtual DbSet<MASTER> MASTERs { get; set; }
+        public virtual DbSet<Medium> Media { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<PostComment> PostComments { get; set; }
+        public virtual DbSet<PostLocation> PostLocations { get; set; }
+        public virtual DbSet<PostTag> PostTags { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<TAG> TAGs { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserDetail> UserDetails { get; set; }
     }
 }

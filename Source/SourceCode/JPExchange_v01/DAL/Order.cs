@@ -14,9 +14,9 @@ namespace DAL
     
     public partial class Order
     {
-        public System.Guid OrderId { get; set; }
-        public Nullable<System.Guid> PostId { get; set; }
-        public Nullable<System.Guid> OrderUserId { get; set; }
+        public int OrderId { get; set; }
+        public Nullable<int> PostId { get; set; }
+        public Nullable<int> OrderUserId { get; set; }
         public string OrderContent { get; set; }
         public string OrderName { get; set; }
         public string OrderAddress { get; set; }
@@ -25,9 +25,9 @@ namespace DAL
         public string Status { get; set; }
         public Nullable<byte> ShipMethod { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.Guid> CreatedBy { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public Nullable<System.Guid> ModifiedBy { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual User OwnerUser { get; set; }

@@ -14,9 +14,9 @@ namespace DAL
     
     public partial class PostLocation
     {
-        public System.Guid PostId { get; set; }
-        public System.Guid LocationId { get; set; }
-        public System.Guid PostLocationId { get; set; }
+        public int PostLocationId { get; set; }
+        public int PostId { get; set; }
+        public int LocationId { get; set; }
     
         public virtual LOCATION Location { get; set; }
         public virtual Post Post { get; set; }

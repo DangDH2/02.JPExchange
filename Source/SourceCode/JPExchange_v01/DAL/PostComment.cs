@@ -14,15 +14,15 @@ namespace DAL
     
     public partial class PostComment
     {
-        public System.Guid PostCommentId { get; set; }
-        public Nullable<System.Guid> PostId { get; set; }
+        public int PostCommentId { get; set; }
+        public Nullable<int> PostId { get; set; }
         public string Comment { get; set; }
         public string Status { get; set; }
         public Nullable<byte> Pinned { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.Guid> CreatedBy { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public Nullable<System.Guid> ModifiedBy { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual User CreatedUser { get; set; }

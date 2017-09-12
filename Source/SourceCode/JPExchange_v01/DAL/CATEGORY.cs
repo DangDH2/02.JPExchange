@@ -16,16 +16,16 @@ namespace DAL
     {
         public CATEGORY()
         {
-            this.ListChild = new HashSet<CATEGORY>();
+            this.ListChildCategory = new HashSet<CATEGORY>();
             this.ListPost = new HashSet<Post>();
         }
     
-        public System.Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
-        public Nullable<System.Guid> ParentId { get; set; }
+        public Nullable<int> ParentId { get; set; }
         public Nullable<byte> Index { get; set; }
     
-        public virtual ICollection<CATEGORY> ListChild { get; set; }
+        public virtual ICollection<CATEGORY> ListChildCategory { get; set; }
         public virtual CATEGORY Parent { get; set; }
         public virtual ICollection<Post> ListPost { get; set; }
     }

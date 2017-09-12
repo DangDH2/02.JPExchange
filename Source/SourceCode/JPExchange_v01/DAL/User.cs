@@ -18,12 +18,15 @@ namespace DAL
         {
             this.ListBookmark = new HashSet<Bookmark>();
             this.ListSendMessage = new HashSet<Message>();
-            this.ListReceiveMessage = new HashSet<Message>();
+            this.ListReceivedMessage = new HashSet<Message>();
             this.ListOrder = new HashSet<Order>();
-            this.ListPost = new HashSet<Post>();
+            this.ListCreatedOrder = new HashSet<Order>();
+            this.ListOwnerPost = new HashSet<Post>();
+            this.ListCreatedPost = new HashSet<Post>();
+            this.ListRating = new HashSet<Rating>();
         }
     
-        public System.Guid UserId { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Fullname { get; set; }
@@ -31,23 +34,26 @@ namespace DAL
         public Nullable<System.DateTime> Birthday { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Nullable<System.Guid> UserDetailId { get; set; }
+        public Nullable<int> UserDetailId { get; set; }
         public Nullable<byte> Rating { get; set; }
         public string Status { get; set; }
         public Nullable<System.DateTime> LastLoginDate { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.Guid> CreatedBy { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public Nullable<System.Guid> ModifiedBy { get; set; }
-        public Nullable<System.Guid> LevelId { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
+        public Nullable<int> LevelId { get; set; }
         public Nullable<byte> Role { get; set; }
     
         public virtual ICollection<Bookmark> ListBookmark { get; set; }
         public virtual LEVEL Level { get; set; }
         public virtual ICollection<Message> ListSendMessage { get; set; }
-        public virtual ICollection<Message> ListReceiveMessage { get; set; }
+        public virtual ICollection<Message> ListReceivedMessage { get; set; }
         public virtual ICollection<Order> ListOrder { get; set; }
-        public virtual ICollection<Post> ListPost { get; set; }
+        public virtual ICollection<Order> ListCreatedOrder { get; set; }
+        public virtual ICollection<Post> ListOwnerPost { get; set; }
+        public virtual ICollection<Post> ListCreatedPost { get; set; }
+        public virtual ICollection<Rating> ListRating { get; set; }
         public virtual UserDetail UserDetail { get; set; }
         public virtual User ModifiedUser { get; set; }
         public virtual User CreatedUser { get; set; }

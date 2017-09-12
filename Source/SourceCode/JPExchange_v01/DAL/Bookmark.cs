@@ -14,9 +14,9 @@ namespace DAL
     
     public partial class Bookmark
     {
-        public System.Guid BookmarkId { get; set; }
-        public Nullable<System.Guid> PostId { get; set; }
-        public Nullable<System.Guid> UserId { get; set; }
+        public int BookmarkId { get; set; }
+        public Nullable<int> PostId { get; set; }
+        public Nullable<int> UserId { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual User User { get; set; }

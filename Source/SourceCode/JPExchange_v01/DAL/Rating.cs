@@ -14,10 +14,10 @@ namespace DAL
     
     public partial class Rating
     {
-        public System.Guid RatingId { get; set; }
-        public Nullable<System.Guid> PostId { get; set; }
-        public Nullable<System.Guid> UserId { get; set; }
-        public Nullable<byte> RatingValue { get; set; }
+        public int RatingId { get; set; }
+        public Nullable<int> PostId { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public Nullable<byte> Rating1 { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual User User { get; set; }

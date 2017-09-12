@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a627ab99ed7346ef95d7916fc5c80b7e" Name="Diagram1">
+      <Diagram DiagramId="a54cf2e5a8af42f29db6c621034e4233" Name="Diagram1">
         <EntityTypeShape EntityType="JPEModel.Bookmark" Width="1.5" PointX="10.5" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.CATEGORY" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.LEVEL" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.LOCATION" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.MASTER" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JPEModel.Media" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JPEModel.Medium" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.Message" Width="1.5" PointX="10.5" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.Order" Width="1.5" PointX="13.5" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="JPEModel.Post" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
