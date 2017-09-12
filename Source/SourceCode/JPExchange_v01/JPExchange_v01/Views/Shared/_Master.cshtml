@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -79,6 +79,8 @@
         <div class="CONTENT" id="body">
             <div id="LEFT_REGION" class="left">
                 <div class="LEFT_REGION">
+                    @RenderSection("LEFT_PANEL_01", required: false)
+                    <!--
                     <div class="LEFT_HEADER">
                         {!LEFT_REGION_01!}
                     </div>
@@ -91,38 +93,18 @@
                             <li><a href="#">Link 5</a></li>
                         </ul>
                     </div>
+                        -->
+                </div>
+                <div class="LEFT_REGION">
+                    @RenderSection("LEFT_PANEL_02", required: false)
+                </div>
+                <div class="LEFT_REGION">
+                    @RenderSection("LEFT_PANEL_03", required: false)
+                </div>
+                <div class="LEFT_REGION">
+                    @RenderSection("LEFT_PANEL_04", required: false)
+                </div>
 
-                </div>
-                <div class="LEFT_REGION">
-                    <div class="LEFT_HEADER">
-                        {!LEFT_REGION_02!}
-                    </div>
-                    <div class="LEFT_CONTENT">
-                        News component here
-                    </div>
-                </div>
-                <div class="LEFT_REGION">
-                    <div class="LEFT_HEADER">
-                        {!LEFT_REGION_03!}
-                    </div>
-                    <div class="LEFT_CONTENT">
-                        Contacts component here
-                    </div>
-                </div>
-                <div class="LEFT_REGION">
-                    <div class="LEFT_HEADER">
-                        {!LEFT_REGION_04!}
-                    </div>
-                    <div class="LEFT_CONTENT">
-                        Contacts component here
-                    </div>
-                </div>
-                {!LEFT_REGION_05!}<br/>
-                {!LEFT_REGION_06!}<br/>
-                {!LEFT_REGION_07!}<br/>
-                {!LEFT_REGION_08!}<br/>
-                {!LEFT_REGION_09!}<br/>
-                {!LEFT_REGION_10!}
             </div>
             <div id="CENTER_REGION" class="right ">
                 <div class="CENTER_REGION">
