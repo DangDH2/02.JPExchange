@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BUS.DTO
+{
+    public class PostCommentDTO
+    {
+        public String CommentId { get; set; }
+        public String CommentContent { get; set; }
+        
+        
+        public PostCommentDTO(){
+        }
+        
+    }
+}
