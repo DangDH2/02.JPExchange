@@ -5,11 +5,9 @@
 
 <h2>Index</h2>
 
-@section CONTENT_01 {
-    <!-- Load Partical truc tiep-->
-    @{Html.RenderAction("ViewListCategory", "Category");}  
-<br />
-<div id="somedivid"></div>
+@section LEFT_PANEL_01 {
+
+<div id="LEFT_PANEL_01"></div>
 }
 
 
@@ -19,7 +17,7 @@
         $.ajax({
             url: '/Category/ViewListCategory',
             success: function(result) {
-                $('#somedivid').html(result);
+                $('#LEFT_PANEL_01').html(result);
             }
         });
     </script>

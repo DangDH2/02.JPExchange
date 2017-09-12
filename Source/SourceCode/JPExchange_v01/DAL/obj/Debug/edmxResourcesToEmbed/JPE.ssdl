@@ -4,24 +4,24 @@
     <Key>
       <PropertyRef Name="BookmarkId" />
     </Key>
-    <Property Name="BookmarkId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostId" Type="uniqueidentifier" />
-    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="BookmarkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" />
+    <Property Name="UserId" Type="int" />
   </EntityType>
   <EntityType Name="CATEGORY">
     <Key>
       <PropertyRef Name="CategoryId" />
     </Key>
-    <Property Name="CategoryId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="10" />
-    <Property Name="ParentId" Type="uniqueidentifier" />
+    <Property Name="ParentId" Type="int" />
     <Property Name="Index" Type="tinyint" />
   </EntityType>
   <EntityType Name="LEVEL">
     <Key>
       <PropertyRef Name="LevelId" />
     </Key>
-    <Property Name="LevelId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LevelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LevelType" Type="varchar" MaxLength="20" />
     <Property Name="Value" Type="tinyint" />
   </EntityType>
@@ -29,7 +29,7 @@
     <Key>
       <PropertyRef Name="LocationId" />
     </Key>
-    <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="City" Type="nvarchar" MaxLength="50" />
     <Property Name="District" Type="nvarchar" MaxLength="50" />
     <Property Name="Index" Type="tinyint" />
@@ -45,8 +45,8 @@
     <Key>
       <PropertyRef Name="MediaId" />
     </Key>
-    <Property Name="MediaId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostId" Type="uniqueidentifier" />
+    <Property Name="MediaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" />
     <Property Name="MediaLink" Type="nvarchar" MaxLength="200" />
     <Property Name="Type" Type="tinyint" />
     <Property Name="Index" Type="tinyint" />
@@ -55,25 +55,25 @@
     <Key>
       <PropertyRef Name="MessageId" />
     </Key>
-    <Property Name="MessageId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="UserFromId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="UserToId" Type="uniqueidentifier" />
+    <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFromId" Type="int" Nullable="false" />
+    <Property Name="UserToId" Type="int" />
     <Property Name="Title" Type="nvarchar" MaxLength="200" />
     <Property Name="Contents" Type="nvarchar" MaxLength="2000" />
     <Property Name="ImportantLevel" Type="tinyint" />
     <Property Name="Status" Type="varchar" MaxLength="30" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
     <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="uniqueidentifier" />
+    <Property Name="ModifiedBy" Type="int" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="OrderId" />
     </Key>
-    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostId" Type="uniqueidentifier" />
-    <Property Name="OrderUserId" Type="uniqueidentifier" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" />
+    <Property Name="OrderUserId" Type="int" />
     <Property Name="OrderContent" Type="nvarchar" MaxLength="2000" />
     <Property Name="OrderName" Type="nvarchar" MaxLength="50" />
     <Property Name="OrderAddress" Type="nvarchar" MaxLength="300" />
@@ -82,79 +82,79 @@
     <Property Name="Status" Type="varchar" MaxLength="30" />
     <Property Name="ShipMethod" Type="tinyint" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
     <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="uniqueidentifier" />
+    <Property Name="ModifiedBy" Type="int" />
   </EntityType>
   <EntityType Name="Post">
     <Key>
       <PropertyRef Name="PostId" />
     </Key>
-    <Property Name="PostId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="200" />
     <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="UserId" Type="uniqueidentifier" />
-    <Property Name="CategoryId" Type="uniqueidentifier" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CategoryId" Type="int" />
     <Property Name="Price" Type="float" />
     <Property Name="PriceSale" Type="float" />
+    <Property Name="LevelId" Type="int" />
     <Property Name="ValidDate" Type="date" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
     <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="uniqueidentifier" />
-    <Property Name="LevelId" Type="uniqueidentifier" />
+    <Property Name="ModifiedBy" Type="int" />
   </EntityType>
   <EntityType Name="PostComment">
     <Key>
       <PropertyRef Name="PostCommentId" />
     </Key>
-    <Property Name="PostCommentId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostId" Type="uniqueidentifier" />
+    <Property Name="PostCommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" />
     <Property Name="Comment" Type="nvarchar" MaxLength="50" />
     <Property Name="Status" Type="varchar" MaxLength="30" />
     <Property Name="Pinned" Type="tinyint" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
     <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="uniqueidentifier" />
+    <Property Name="ModifiedBy" Type="int" />
   </EntityType>
   <EntityType Name="PostLocation">
     <Key>
       <PropertyRef Name="PostLocationId" />
     </Key>
-    <Property Name="PostId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostLocationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostLocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PostTag">
     <Key>
       <PropertyRef Name="PostTagId" />
     </Key>
-    <Property Name="PostId" Type="uniqueidentifier" />
-    <Property Name="TagId" Type="uniqueidentifier" />
-    <Property Name="PostTagId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostTagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" />
+    <Property Name="TagId" Type="int" />
   </EntityType>
   <EntityType Name="Rating">
     <Key>
       <PropertyRef Name="RatingId" />
     </Key>
-    <Property Name="RatingId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostId" Type="uniqueidentifier" />
-    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="RatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" />
+    <Property Name="UserId" Type="int" />
     <Property Name="Rating" Type="tinyint" />
   </EntityType>
   <EntityType Name="TAG">
     <Key>
       <PropertyRef Name="TagId" />
     </Key>
-    <Property Name="TagId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
@@ -162,22 +162,22 @@
     <Property Name="Birthday" Type="date" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
     <Property Name="Phone" Type="varchar" MaxLength="15" />
-    <Property Name="UserDetailId" Type="uniqueidentifier" />
+    <Property Name="UserDetailId" Type="int" />
     <Property Name="Rating" Type="tinyint" />
     <Property Name="Status" Type="varchar" MaxLength="30" />
     <Property Name="LastLoginDate" Type="date" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
     <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="uniqueidentifier" />
-    <Property Name="LevelId" Type="uniqueidentifier" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="LevelId" Type="int" />
     <Property Name="Role" Type="tinyint" />
   </EntityType>
   <EntityType Name="UserDetail">
     <Key>
       <PropertyRef Name="UserDetailId" />
     </Key>
-    <Property Name="UserDetailId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SecondEmail" Type="nvarchar" MaxLength="50" />
     <Property Name="SecondPhone" Type="varchar" MaxLength="15" />
     <Property Name="Bio" Type="nvarchar" MaxLength="2000" />
@@ -187,14 +187,14 @@
     <Property Name="LocationX" Type="varchar" MaxLength="18" />
     <Property Name="LocationY" Type="varchar" MaxLength="18" />
     <Property Name="Country" Type="nvarchar" MaxLength="20" />
-    <Property Name="LocationId" Type="uniqueidentifier" />
+    <Property Name="LocationId" Type="int" />
     <Property Name="Ward" Type="nvarchar" MaxLength="50" />
     <Property Name="Street" Type="nvarchar" MaxLength="50" />
     <Property Name="Address" Type="nvarchar" MaxLength="50" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="uniqueidentifier" />
-    <Property Name="ModifiedDate" Type="uniqueidentifier" />
-    <Property Name="ModifiedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
   </EntityType>
   <Association Name="FK_Bookmarks_Post">
     <End Role="Post" Type="Self.Post" Multiplicity="0..1" />

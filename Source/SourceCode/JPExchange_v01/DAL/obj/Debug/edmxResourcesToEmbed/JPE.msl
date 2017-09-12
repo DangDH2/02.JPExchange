@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="JPEModelStoreContainer" CdmEntityContainer="JPEEntities">
-    <EntitySetMapping Name="Bookmark">
+    <EntitySetMapping Name="Bookmarks">
       <EntityTypeMapping TypeName="JPEModel.Bookmark">
         <MappingFragment StoreEntitySet="Bookmark">
           <ScalarProperty Name="BookmarkId" ColumnName="BookmarkId" />
@@ -10,7 +10,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CATEGORY">
+    <EntitySetMapping Name="CATEGORies">
       <EntityTypeMapping TypeName="JPEModel.CATEGORY">
         <MappingFragment StoreEntitySet="CATEGORY">
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -20,7 +20,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LEVEL">
+    <EntitySetMapping Name="LEVELs">
       <EntityTypeMapping TypeName="JPEModel.LEVEL">
         <MappingFragment StoreEntitySet="LEVEL">
           <ScalarProperty Name="LevelId" ColumnName="LevelId" />
@@ -29,7 +29,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LOCATION">
+    <EntitySetMapping Name="LOCATIONs">
       <EntityTypeMapping TypeName="JPEModel.LOCATION">
         <MappingFragment StoreEntitySet="LOCATION">
           <ScalarProperty Name="LocationId" ColumnName="LocationId" />
@@ -39,7 +39,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MASTER">
+    <EntitySetMapping Name="MASTERs">
       <EntityTypeMapping TypeName="JPEModel.MASTER">
         <MappingFragment StoreEntitySet="MASTER">
           <ScalarProperty Name="MKEY" ColumnName="MKEY" />
@@ -48,7 +48,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Media">
-      <EntityTypeMapping TypeName="JPEModel.Media">
+      <EntityTypeMapping TypeName="JPEModel.Medium">
         <MappingFragment StoreEntitySet="Media">
           <ScalarProperty Name="MediaId" ColumnName="MediaId" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
@@ -58,7 +58,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Message">
+    <EntitySetMapping Name="Messages">
       <EntityTypeMapping TypeName="JPEModel.Message">
         <MappingFragment StoreEntitySet="Message">
           <ScalarProperty Name="MessageId" ColumnName="MessageId" />
@@ -75,7 +75,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Order">
+    <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="JPEModel.Order">
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
@@ -95,7 +95,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Post">
+    <EntitySetMapping Name="Posts">
       <EntityTypeMapping TypeName="JPEModel.Post">
         <MappingFragment StoreEntitySet="Post">
           <ScalarProperty Name="PostId" ColumnName="PostId" />
@@ -105,16 +105,16 @@
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
           <ScalarProperty Name="ValidDate" ColumnName="ValidDate" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PostComment">
+    <EntitySetMapping Name="PostComments">
       <EntityTypeMapping TypeName="JPEModel.PostComment">
         <MappingFragment StoreEntitySet="PostComment">
           <ScalarProperty Name="PostCommentId" ColumnName="PostCommentId" />
@@ -129,35 +129,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PostLocation">
+    <EntitySetMapping Name="PostLocations">
       <EntityTypeMapping TypeName="JPEModel.PostLocation">
         <MappingFragment StoreEntitySet="PostLocation">
+          <ScalarProperty Name="PostLocationId" ColumnName="PostLocationId" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
           <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-          <ScalarProperty Name="PostLocationId" ColumnName="PostLocationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PostTag">
+    <EntitySetMapping Name="PostTags">
       <EntityTypeMapping TypeName="JPEModel.PostTag">
         <MappingFragment StoreEntitySet="PostTag">
+          <ScalarProperty Name="PostTagId" ColumnName="PostTagId" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
           <ScalarProperty Name="TagId" ColumnName="TagId" />
-          <ScalarProperty Name="PostTagId" ColumnName="PostTagId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Rating">
+    <EntitySetMapping Name="Ratings">
       <EntityTypeMapping TypeName="JPEModel.Rating">
         <MappingFragment StoreEntitySet="Rating">
           <ScalarProperty Name="RatingId" ColumnName="RatingId" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="RatingValue" ColumnName="Rating" />
+          <ScalarProperty Name="Rating1" ColumnName="Rating" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TAG">
+    <EntitySetMapping Name="TAGs">
       <EntityTypeMapping TypeName="JPEModel.TAG">
         <MappingFragment StoreEntitySet="TAG">
           <ScalarProperty Name="TagId" ColumnName="TagId" />
@@ -165,7 +165,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="User">
+    <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="JPEModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -189,7 +189,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserDetail">
+    <EntitySetMapping Name="UserDetails">
       <EntityTypeMapping TypeName="JPEModel.UserDetail">
         <MappingFragment StoreEntitySet="UserDetail">
           <ScalarProperty Name="UserDetailId" ColumnName="UserDetailId" />
