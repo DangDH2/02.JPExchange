@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convert\CategoryConvert.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
