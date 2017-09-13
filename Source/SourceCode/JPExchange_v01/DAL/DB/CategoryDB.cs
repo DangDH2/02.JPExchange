@@ -10,7 +10,7 @@ namespace DAL.DB
 {
     public static class CategoryDB
     {
-        public static void Add(CATEGORY cat)
+        public static String Add(CATEGORY cat)
         {
 
             using (var context = new JPEEntities())
@@ -25,11 +25,12 @@ namespace DAL.DB
 
                         context.SaveChanges();
 
-
+                        return "";
                         //dbContextTransaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        return ex.Message;
                         //dbContextTransaction.Rollback();
                     }
                 //}

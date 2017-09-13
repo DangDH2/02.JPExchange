@@ -12,9 +12,9 @@ namespace BUS.DAO
 {
     public class CategoryDAO
     {
-        public void AddCategory(CategoryDTO DTO)
+        public String AddCategory(CategoryDTO DTO)
         {
-            CategoryDB.Add(CategoryConvert.FromDTOToDB(DTO));
+            return CategoryDB.Add(CategoryConvert.FromDTOToDB(DTO));
             
         }
         public void UpdateCategory(CategoryDTO DTO)
