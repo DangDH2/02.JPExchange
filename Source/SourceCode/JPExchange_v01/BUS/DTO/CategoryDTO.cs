@@ -10,7 +10,7 @@ namespace BUS.DTO
     {
         public String Id { get; set; }
         public String Name { get; set; }
-
+        public byte Index { get; set; }
         public List<CategoryDTO> ListChildCategory { get; set; }
         
         public CategoryDTO(){

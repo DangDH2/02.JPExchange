@@ -23,7 +23,7 @@ namespace BUS.Convert
             CategoryDTO dto = new CategoryDTO();
             dto.Id = db.CategoryId.ToString();
             dto.Name = db.Name;
-
+            dto.Index = (db.Index==null?(byte)0:(byte)db.Index);
             return dto;
         }
         public static List<CategoryDTO> FromDBToDTO(List<CATEGORY> lsDb)

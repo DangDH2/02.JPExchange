@@ -1,3 +1,7 @@
 
 
 *.pdb
+*.cache
+*.csproj
+*/bin/*
+*\bin\*
