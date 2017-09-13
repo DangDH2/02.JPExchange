@@ -54,6 +54,7 @@
     <Compile Include="CATEGORY.cs">
       <DependentUpon>JPE.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\CategoryDB.cs" />
     <Compile Include="JPE.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

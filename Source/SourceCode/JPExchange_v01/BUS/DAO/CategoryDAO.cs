@@ -1,4 +1,7 @@
-﻿using BUS.DTO;
+﻿using BUS.Convert;
+using BUS.DTO;
+using DAL;
+using DAL.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +12,19 @@ namespace BUS.DAO
 {
     public class CategoryDAO
     {
+        public void AddCategory(CategoryDTO DTO)
+        {
+            CategoryDB.Add(CategoryConvert.FromDTOToDB(DTO));
+            
+        }
+        public void UpdateCategory(CategoryDTO DTO)
+        {
+
+        }
+        public void DeleteCategory(int categoryId)
+        {
+
+        }
         public List<CategoryDTO> GetListCategory()
         {
             List<CategoryDTO> ret = new List<CategoryDTO>();
@@ -24,7 +40,7 @@ namespace BUS.DAO
             return ret;
         }
 
-        public CategoryDTO GetChildCategory(String Id)
+        public CategoryDTO GetChildCategory(int Id)
         {
             CategoryDTO a = new CategoryDTO();
             a.Id = "1";
