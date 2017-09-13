@@ -1,4 +1,6 @@
-﻿using JPExchange_v01.Models;
+﻿using BUS.DAO;
+using BUS.DTO;
+using JPExchange_v01.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,14 @@ namespace JPExchange_v01.Controllers
         }
         public ActionResult ViewListCategory()
         {
-            return PartialView("ListCategories");
+            /*
+            CategoryDTO DTO = new CategoryDTO();
+            DTO.Name = "Thực phẩm";
+            DTO.Index = 1;
+            CategoryDAO dao = new CategoryDAO();
+            dao.AddCategory(DTO);
+             * */
+            return PartialView("ListCategory");
         }
     }
 }
