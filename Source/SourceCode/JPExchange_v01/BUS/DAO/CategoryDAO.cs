@@ -27,25 +27,18 @@ namespace BUS.DAO
         }
         public List<CategoryDTO> GetListCategory()
         {
-            List<CategoryDTO> ret = new List<CategoryDTO>();
-            CategoryDTO a = new CategoryDTO();
-            a.Id = "1";
-            a.Name = "Category 1";
-            ret.Add(a);
-            a = new CategoryDTO();
-            a.Id = "2";
-            a.Name = "Category 2";
-            ret.Add(a);
+            List<CategoryDTO> LsDTO = CategoryConvert.FromDBToDTO(CategoryDB.GetParent());
+            foreach (CategoryDTO dto in LsDTO)
+            {
+                dto.ListChildCategory = GetChildCategory(int.Parse(dto.Id));
+            }
 
-            return ret;
+            return LsDTO;
         }
 
-        public CategoryDTO GetChildCategory(int Id)
+        public List<CategoryDTO> GetChildCategory(int Id)
         {
-            CategoryDTO a = new CategoryDTO();
-            a.Id = "1";
-            a.Name = "Category 1";
-            return a;
+            return CategoryConvert.FromDBToDTO(CategoryDB.GetChild(Id));
         }
 
 

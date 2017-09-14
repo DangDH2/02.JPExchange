@@ -26,10 +26,10 @@ namespace DAL
         }
     
         public virtual DbSet<Bookmark> Bookmarks { get; set; }
-        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<LEVEL> LEVELs { get; set; }
-        public virtual DbSet<LOCATION> LOCATIONs { get; set; }
-        public virtual DbSet<MASTER> MASTERs { get; set; }
+        public virtual DbSet<CATEGORY> CATEGORIES { get; set; }
+        public virtual DbSet<LEVEL> LEVELS { get; set; }
+        public virtual DbSet<LOCATION> LOCATIONS { get; set; }
+        public virtual DbSet<MASTER> MASTERS { get; set; }
         public virtual DbSet<Medium> Media { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -38,7 +38,7 @@ namespace DAL
         public virtual DbSet<PostLocation> PostLocations { get; set; }
         public virtual DbSet<PostTag> PostTags { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
-        public virtual DbSet<TAG> TAGs { get; set; }
+        public virtual DbSet<TAG> TAGS { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
     }

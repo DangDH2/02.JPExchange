@@ -20,19 +20,17 @@ namespace JPExchange_v01.Controllers
         }
         public ActionResult ViewListCategory()
         {
-            String mess = "";
-            try { 
-                CategoryDTO DTO = new CategoryDTO();
-                DTO.Name = "Thực phẩm";
-                DTO.Index = 1;
-                CategoryDAO dao = new CategoryDAO();
-                //mess = dao.AddCategory(DTO);
-            }
-            catch (Exception e)
-            {
-                mess = e.Message;
-            }
-            return PartialView("ListCategory", mess);
+
+            CategoryDAO dao = new CategoryDAO();
+            List<CategoryDTO> ListCategoryDTO = dao.GetListCategory();
+            CategoryModel model = new CategoryModel(ListCategoryDTO);
+
+            return PartialView("ListCategory", model);
+        }
+
+        public ActionResult ListPost(String id)
+        {
+            return View();
         }
     }
 }

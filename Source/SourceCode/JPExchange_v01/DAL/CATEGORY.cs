@@ -19,6 +19,7 @@ namespace DAL
             this.ListChildCategory = new HashSet<CATEGORY>();
             this.ListPost = new HashSet<Post>();
         }
+        
     
         public int CategoryId { get; set; }
         public string Name { get; set; }

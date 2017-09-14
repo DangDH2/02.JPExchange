@@ -19,7 +19,12 @@ namespace BUS.Convert
         }
         public static List<CATEGORY> FromDTOToDB(List<CategoryDTO> lsDTO)
         {
-            return null;
+            List<CATEGORY> ret = new List<CATEGORY>();
+            foreach (CategoryDTO c in lsDTO)
+            {
+                ret.Add(FromDTOToDB(c));
+            }
+            return ret;
         }
         public static CategoryDTO FromDBToDTO(CATEGORY db)
         {

@@ -10,6 +10,33 @@ namespace DAL.DB
 {
     public static class CategoryDB
     {
+        public static List<CATEGORY> GetParent()
+        {
+            using (var context = new JPEEntities())
+            {
+                var dataset = context.CATEGORIES
+                    .Where(x => x.ParentId == null)
+                    .OrderBy(x => x.Index).ToList();
+
+                return dataset;
+            }
+
+        }
+        public static List<CATEGORY> GetChild(int Id)
+        {
+            using (var context = new JPEEntities())
+            {
+                var dataset = context.CATEGORIES
+                    .Where(x => x.ParentId == Id)
+                    .OrderBy(x => x.Index).ToList();
+
+                return dataset;
+            }
+
+        }
+        
+
+
         public static String Add(CATEGORY cat)
         {
 
@@ -21,7 +48,7 @@ namespace DAL.DB
                     try
                     {
 
-                        context.CATEGORies.Add(cat);
+                        context.CATEGORIES.Add(cat);
 
                         context.SaveChanges();
 
