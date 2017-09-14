@@ -26,7 +26,7 @@ namespace JPExchange_v01.Controllers
                 DTO.Name = "Thực phẩm";
                 DTO.Index = 1;
                 CategoryDAO dao = new CategoryDAO();
-                mess = dao.AddCategory(DTO);
+                //mess = dao.AddCategory(DTO);
             }
             catch (Exception e)
             {

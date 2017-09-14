@@ -12,7 +12,10 @@ namespace BUS.Convert
     {
         public static CATEGORY FromDTOToDB(CategoryDTO dto)
         {
-            return null;
+            CATEGORY cat = new CATEGORY();
+            cat.Name = dto.Name;
+            cat.Index = dto.Index;
+            return cat;
         }
         public static List<CATEGORY> FromDTOToDB(List<CategoryDTO> lsDTO)
         {
