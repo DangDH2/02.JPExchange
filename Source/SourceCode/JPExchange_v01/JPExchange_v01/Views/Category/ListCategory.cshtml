@@ -8,7 +8,7 @@
         {
         <ul>
             @for (var j = 0; j < Model.ListCategory[i].ListChildCategory.Count ; j++) {
-                <li><a href="products.html"><i class="icon-chevron-right"></i>@Model.ListCategory[i].ListChildCategory[j].Name</a></li>
+                <li><a href="/Category/ListPost/@Model.ListCategory[i].ListChildCategory[j].Id"><i class="icon-chevron-right"></i>@Model.ListCategory[i].ListChildCategory[j].Name</a></li>
             }
 
         </ul>

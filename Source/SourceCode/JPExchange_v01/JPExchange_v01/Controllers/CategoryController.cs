@@ -30,6 +30,7 @@ namespace JPExchange_v01.Controllers
 
         public ActionResult ListPost(String id)
         {
+            
             return View();
         }
     }

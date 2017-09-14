@@ -1,0 +1,21 @@
+﻿@{
+   
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+@section LEFT_PANEL_01 {
+    <div id="LEFT_PANEL_01"></div>
+}
+
+
+@section SCRIPT_AFTER
+{
+    <script>
+    $.ajax({
+        url: '/Category/ViewListCategory',
+        success: function (result) {
+            $('#LEFT_PANEL_01').html(result);
+        }
+    });
+</script>
+}

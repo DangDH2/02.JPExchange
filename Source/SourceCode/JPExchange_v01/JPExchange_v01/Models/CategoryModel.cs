@@ -19,5 +19,6 @@ namespace JPExchange_v01.Models
         }
         public List<CategoryDTO> ListCategory { get; set; }
 
+        public int ActivedCategoryId { get; set; }
     }
 }
